@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+.mr-auto{
+    margin: auto;
+}
+.gap-1{
+    gap: 1%;
+}
+.incompleted{
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 4%;
+    background:rgb(131, 11, 11);
+}
+.completed{
+    border: 1px solid;
+padding: 5px;
+border-radius: 4%;
+background:rgb(13, 87, 13);
+}
+.pd-1{
+    padding-top: 3%;
+}

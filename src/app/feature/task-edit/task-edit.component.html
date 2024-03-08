@@ -1,0 +1,44 @@
+<section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Edit Task Details</h4>
+            </div>
+        </div>
+        <form class="row g-3 border rounded cutsom_des" [formGroup]="taskEdit">
+            <div class="col-md-6">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" formControlName="title" [(ngModel)]="taskDetails.title">
+                <div class="text-danger" *ngIf="f['title'].errors  && f['title'].touched || formSubmit">
+                    <p class="text-danger" *ngIf="f['title'].errors&&f['title'].errors['required']">
+                        Enter The Task Title*</p>
+                    <p class="text-danger" *ngIf="f['title'].errors&&f['title'].errors['minlength']">
+                        Task Title must be at least 3 characters*</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="dueDate" class="form-label">Due Date</label>
+                <input type="date" class="form-control" id="dueDate" formControlName="due_date" name="due_date" [(ngModel)]="taskDetails.due_date">
+                <div class="text-danger" *ngIf="f['due_date'].errors  && f['due_date'].touched || formSubmit">
+                    <p class="text-danger" *ngIf="f['due_date'].errors&&f['due_date'].errors['required']">
+                        Enter The Task Due Date*</p>
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="describtion" class="form-label">Describtion</label>
+                <textarea type="text" class="form-control" name="describtion" id="describtion" cols="30" rows="10"
+                    formControlName="describtion" [(ngModel)]="taskDetails.description"></textarea>
+                    <div class="text-danger" *ngIf="f['describtion'].errors  && f['describtion'].touched || formSubmit">
+                        <p class="text-danger" *ngIf="f['describtion'].errors&&f['describtion'].errors['required']">
+                            Enter The Task Describtion*</p>
+                        <p class="text-danger" *ngIf="f['describtion'].errors&&f['describtion'].errors['minlength']">
+                            Task Describtion must be at least 10 characters*</p>
+                    </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-success d-flex mr-auto" (click)="submitForm()">Submit</button>
+            </div>
+        </form>
+    </div>
+</section>

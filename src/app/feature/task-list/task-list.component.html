@@ -1,0 +1,33 @@
+<section>
+    <div class="container">
+        <table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <td>S.No</td>
+                    <td>Title</td>
+                    <td>Description</td>
+                    <td>Due Date</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of taskList;let i =index;">
+                    <td>{{i+1}}</td>
+                    <td>{{data.title}}</td>
+                    <td>{{data.description}}</td>
+                    <td>{{data.due_date}}</td>
+                    <td>{{data.n_status == 1 ? 'Incomplete' : 'Completed'}}</td>
+                    <td>
+                        <div class="d-flex gap-1">
+                            <button class="btn btn-danger" (click)="viewTask(data.id)">View Task</button>
+                            <button class="btn btn-primary" (click)="editTask(data.id)">Edit</button>
+                            <button class="btn btn-success" (click)="changeStatus(data.id,data.n_status)">Change Status</button>
+                            <button class="btn btn-danger" (click)="deleteTask(data.id)">Delete Task</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
